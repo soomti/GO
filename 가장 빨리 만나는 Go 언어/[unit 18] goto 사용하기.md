@@ -1,0 +1,78 @@
+# 18. goto 사용하기
+
+##### goto
+
+정해진 레이블로 곧장 이동한다.
+
+프로그래밍에서 goto 코드는 권장되지 않는다.
+
+- **goto 레이블**
+
+  ```go
+  goto LABEL
+  LABEL:
+  ```
+
+
+
+##### 여러 에러상황시, goto 사용하여 중복코드 없애기
+
+- 중복코드
+
+  ```go
+  package main
+  
+  import "fmt"
+  
+  func main() {
+      var a int = 1
+      
+      if a == 1 {
+        fmt.Println("Error 1")
+      }    
+      if a == 2 {
+        fmt.Println("Error 2")
+      }
+      if a == 3 {
+        fmt.Println("Error 1")
+      }
+      
+      return 
+  }
+  ```
+
+- 중복 코드 없이 사용하기 
+
+  ```go
+  package main
+  
+  import "fmt"
+  
+  func main() {
+      var a int = 1
+      
+      if a == 1 {
+        goto ERROR1
+      }
+      if a == 2 {
+        goto ERROR2
+      }
+      if a == 3 {
+        goto ERROR1
+      }
+      
+      fmt.Println(a)
+      fmt.Println("Success")
+     
+      return
+      
+      ERROR1:
+        fmt.Println("error1")
+        return
+      ERROR2:
+        fmt.Println("Error 2")
+        return
+  }
+  ```
+
+goto 키워드 뒤에 코드들은 실행되지 않고 넘어간다. 주의하자. 
