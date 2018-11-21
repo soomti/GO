@@ -21,5 +21,8 @@
     - 자료형은 자료형을 대입하는 값의 자료형으로 결정됨
 
     - 반드시 초깃값을 대입해야 함
-
-      var age = 10 var name = "Maria" var address // 컴파일 에러
+      ```go
+      var age = 10 
+      var name = "Maria" 
+      var address // 컴파일 에러
+      ```
